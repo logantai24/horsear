@@ -30,3 +30,16 @@ h1 {
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
     overflow: hidden;
   }
+
+  .attribution {
+    /* display: flex; */
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0.5em;
+  }
+  
+  .attribution h4 {
+    margin: 0 0 0.25em;
+  }
+  
+ 
