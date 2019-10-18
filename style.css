@@ -22,7 +22,7 @@ h1 {
   }
 
   .links{
-    flex: 0 0 10%;
+    flex: 0 0 30%;
     display: flex;
     justify-content: center;
     align-items: center;
