@@ -1,30 +1,53 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+  <head>
+    <meta
+      charset="utf-8"
+      name="viewport"
+      content="width=device-width, initial-scale=1"
+    />
+    <title>Horse AR</title>
+    <!-- Latest compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
+    />
 
-<head>
-  <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
-  <title>Horse AR</title>
-  <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
 
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <!-- Loads <model-viewer> for modern browsers: -->
+    <script
+      type="module"
+      src="https://unpkg.com/@google/model-viewer/dist/model-viewer.js"
+    ></script>
 
+    <!-- Loads <model-viewer> for old browsers like IE11: -->
+    <script
+      nomodule
+      src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"
+    ></script>
 
-
-  <!-- Loads <model-viewer> for modern browsers: -->
-  <script type="module"
-  src="https://unpkg.com/@google/model-viewer/dist/model-viewer.js">
-  </script>
-
-  <!-- Loads <model-viewer> for old browsers like IE11: -->
-  <script nomodule
-  src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js">
-  </script>
-
-  <link rel="stylesheet" href="css/styling.css">
+    <link rel="stylesheet" href="css/styling.css" />
 
     <!-- 🚨 REQUIRED: Web Components polyfill to support Edge and Firefox < 63 -->
     <script src="https://unpkg.com/@webcomponents/webcomponentsjs@2.1.3/webcomponents-loader.js"></script>
@@ -40,99 +63,156 @@
 
     <!-- 💁 OPTIONAL: Include prismatic.js for Magic Leap support
     <script src="https://unpkg.com/@magicleap/prismatic/prismatic.min.js"></script> -->
-    
+
     <!-- 💁 OPTIONAL: The :focus-visible polyfill removes the focus ring for some input types -->
-    <script src="https://unpkg.com/focus-visible@5.0.2/dist/focus-visible.js" defer></script>
+    <script
+      src="https://unpkg.com/focus-visible@5.0.2/dist/focus-visible.js"
+      defer
+    ></script>
+  </head>
 
-
-</head>
-
-<body>
-<div class="container">
-
-    <div id="mycarousel" class="carousel slide" data-interval="false" data-touch="false">
+  <body>
+    <div class="container">
+      <div
+        id="mycarousel"
+        class="carousel slide"
+        data-interval="false"
+        data-touch="false"
+      >
         <div class="carousel-inner">
-          <div class="carousel-item active">      
+          <div class="carousel-item active">
             <div class="cards">
-              <model-viewer class="model_2" id="horse2" auto-rotate autoplay camera-controls  preload reveal="interaction" poster="images/background.png" src="mshorse/scene-head.glb"  ar alt="Horse"  background-color="#455A73" ios-src="mshorse/scene-head.usdz" quick-look-browsers="safari chrome" >
+              <model-viewer
+                class="model_2"
+                id="horse2"
+                auto-rotate
+                autoplay
+                camera-controls
+                preload
+                reveal="interaction"
+                poster="images/background.png"
+                src="mshorse/scene-head.glb"
+                ar
+                alt="Horse"
+                background-color="#455A73"
+                ios-src="mshorse/scene-head.usdz"
+                quick-look-browsers="safari chrome"
+              >
                 <div id="horse2-poster" slot="poster"></div>
-                <div id="button-load" slot="poster"> 
-                  <img class="tap" src="images/tap-2.png" alt=""> 
+                <div id="button-load" slot="poster">
+                  <img class="tap" src="images/tap-2.png" alt="" />
                 </div>
               </model-viewer>
               <section class="attribution">
                 <span>
                   <h4>Horse Nod</h4>
-                  <h5> <i class="far fa-copyright"></i> 2019 ZooAllies All rights reserved</h5>
+                  <h5>
+                    <i class="far fa-copyright"></i> 2019 ZooAllies All rights
+                    reserved
+                  </h5>
                 </span>
                 <!-- <span>
                     <a href="https://www.zooallies.com" target="_blank">
                       <img class="zoologo" src="images/zoo-logo.png" alt="zoologo">
                     </a>
                 </span> -->
-
               </section>
             </div>
           </div>
           <div class="carousel-item">
-              <div class="cards">
-                  <model-viewer class="model_1" id="horse" src="mshorse/scene-kick4.glb" ar auto-rotate preload  poster="images/background.png" autoplay camera-controls reveal="interaction" alt="Horse"  background-color="#455A73" ios-src="mshorse/scene-kick4.usdz" quick-look-browsers="safari chrome">
-                    <div id="horse-poster" slot="poster"></div>
-                    <div id="button-load" slot="poster"> 
-                      <img class="tap" src="images/tap-2.png" alt=""> 
-                    </div>
-                  </model-viewer>
-                  <section class="attribution">
-                  <span>
-                      <h4>Horse Kick</h4>
-                      <h5> <i class="far fa-copyright"></i> 2019 ZooAllies All rights reserved</h5>
-                  </span>
-                  </section>  
-              </div>
+            <div class="cards">
+              <model-viewer
+                class="model_1"
+                id="horse"
+                src="mshorse/scene-kick4.glb"
+                ar
+                auto-rotate
+                preload
+                poster="images/background.png"
+                autoplay
+                camera-controls
+                reveal="interaction"
+                alt="Horse"
+                background-color="#455A73"
+                ios-src="mshorse/Thomas_T_Kicking_FBX.usdz"
+                quick-look-browsers="safari chrome"
+              >
+                <div id="horse-poster" slot="poster"></div>
+                <div id="button-load" slot="poster">
+                  <img class="tap" src="images/tap-2.png" alt="" />
+                </div>
+              </model-viewer>
+              <section class="attribution">
+                <span>
+                  <h4>Horse Kick</h4>
+                  <h5>
+                    <i class="far fa-copyright"></i> 2019 ZooAllies All rights
+                    reserved
+                  </h5>
+                </span>
+              </section>
+            </div>
           </div>
           <div class="carousel-item">
-              <div class="cards">
-                  <model-viewer class="model_3" id="horse3" src="mshorse/scene-text.glb" ar autoplay preload auto-rotate camera-controls poster="images/background.png"  reveal="interaction"  alt="Horse"  background-color="#455A73" ios-src="mshorse/scene.usdz" quick-look-browsers="safari chrome">
-                    <div id="horse3-poster" slot="poster"></div>
-                    <div id="button-load" slot="poster"> 
-                      <img class="tap" src="images/tap-2.png" alt=""> 
-                    </div>
-                  </model-viewer>
-                  <section class="attribution">
-                      <span>
-                      <h4>Horse Label</h4>
-                      <h5> <i class="far fa-copyright"></i> 2019 ZooAllies All rights reserved</h5>
-                      </span>
-                  </section>
-                  
-              </div>
+            <div class="cards">
+              <model-viewer
+                class="model_3"
+                id="horse3"
+                src="mshorse/scene-text.glb"
+                ar
+                autoplay
+                preload
+                auto-rotate
+                camera-controls
+                poster="images/background.png"
+                reveal="interaction"
+                alt="Horse"
+                background-color="#455A73"
+                ios-src="mshorse/scene.usdz"
+                quick-look-browsers="safari chrome"
+              >
+                <div id="horse3-poster" slot="poster"></div>
+                <div id="button-load" slot="poster">
+                  <img class="tap" src="images/tap-2.png" alt="" />
+                </div>
+              </model-viewer>
+              <section class="attribution">
+                <span>
+                  <h4>Horse Label</h4>
+                  <h5>
+                    <i class="far fa-copyright"></i> 2019 ZooAllies All rights
+                    reserved
+                  </h5>
+                </span>
+              </section>
+            </div>
           </div>
         </div>
 
         <div class="linkwrapper">
-            <div class="links">
-              <a href="" class="prev"> <i class="fas fa-chevron-circle-left fa-sm icons"></i> </a>
-            </div>
-          
-            <div class="links">
-              <a href="" class="next"> <i class="fas fa-chevron-circle-right fa-sm icons"> </i></a>
-            </div>
+          <div class="links">
+            <a href="" class="prev">
+              <i class="fas fa-chevron-circle-left fa-sm icons"></i>
+            </a>
+          </div>
+
+          <div class="links">
+            <a href="" class="next">
+              <i class="fas fa-chevron-circle-right fa-sm icons"> </i
+            ></a>
+          </div>
         </div>
+      </div>
     </div>
 
-</div>
-
-
-  <script src="script.js"></script>
-  <!-- <script type="module"
+    <script src="script.js"></script>
+    <!-- <script type="module"
       src="https://unpkg.com/@google/model-viewer@v0.6.0/dist/model-viewer.js">
   </script> -->
 
-  <!-- Loads <model-viewer> for old browsers like IE11: -->
-  <!-- <script nomodule
+    <!-- Loads <model-viewer> for old browsers like IE11: -->
+    <!-- <script nomodule
       src="https://unpkg.com/@google/model-viewer@v0.6.0/dist/model-viewer-legacy.js">
   </script> -->
-
-</body>
-
+  </body>
 </html>
